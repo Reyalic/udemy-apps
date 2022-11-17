@@ -1,10 +1,10 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@emotion/react';
-import { purpleTheme } from './';
+import { blueTheme } from './';
 
 export const AppTheme = ({ children }) => {
   return (
-    <ThemeProvider theme={ purpleTheme }>
+    <ThemeProvider theme={ blueTheme }>
     {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
     <CssBaseline />
     {children}
