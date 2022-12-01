@@ -1,4 +1,3 @@
-import { async } from "@firebase/util"
 import { collection, deleteDoc, doc, setDoc } from "firebase/firestore/lite"
 import { FirebaseDB } from "../../firebase/config"
 import { addNewEmptyNote, savingNewNote, setActiveNote, setSaving, updateNote, setPhotosToActiveNote, deleteNoteById } from "./journalSlice"
@@ -19,7 +18,7 @@ export const startNewNote = () => {
         }
 
         const newDoc = doc(collection(FirebaseDB, `${uid}/journal/notes`))
-        const res = await setDoc(newDoc, newNote)
+        await setDoc(newDoc, newNote)
 
         newNote.id = newDoc.id
 
