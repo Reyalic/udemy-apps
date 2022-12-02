@@ -27,10 +27,11 @@ export const startRegisterWithEmailPassword = ({email, password, displayName}) =
 
         dispatch(checkingCredentials())
 
-        const result = await registerUserWithEmailPassword({email, password, displayName})
-        if (!result.ok) return dispatch(logout(result.errorMessage))
+        const {ok, uid, photoURL, errorMessage} = await registerUserWithEmailPassword({email, password, displayName})
 
-        dispatch(login(result))
+        if (!ok) return dispatch(logout({errorMessage}))
+
+        dispatch(login({uid, displayName, email, photoURL}))
     }
 }
 
